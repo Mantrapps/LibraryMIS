@@ -52,7 +52,7 @@ public class checkIn extends HttpServlet {
     	}
     	if(cardid!=null && cardid!="")
     	{
-    		Query+=" and Card_id like \"%"+cardid+"%\"";
+    		Query+=" and BORROWER.Card_id like \"%"+cardid+"%\"";
     	}
     	if(bname!=null && bname!="")
     	{

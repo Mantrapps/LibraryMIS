@@ -53,8 +53,8 @@ public class getFine extends HttpServlet {
 		String Query = "select BOOK_LOANS.card_id,BORROWER.bname,sum(Fine_amt) as total from Fines left join BOOK_LOANS on Fines.Loan_id= BOOK_LOANS.Loan_id left join BORROWER on BOOK_LOANS.card_id=BORROWER.card_id where 1=1";
 		String Query2="select Fines.id,BOOK_LOANS.Isbn,BOOK.title,Fine_amt from Fines left join BOOK_LOANS on Fines.Loan_id= BOOK_LOANS.Loan_id left join BOOK on BOOK_LOANS.Isbn= BOOK.Isbn where paid=false ";
 		if (cardid != null && cardid != "") {
-			Query += " and Card_id like \"%" + cardid + "%\"";
-			Query2 += " and Card_id like \"%" + cardid + "%\"";
+			Query += " and BORROWER.Card_id like \"%" + cardid + "%\"";
+			Query2 += " and BORROWER.Card_id like \"%" + cardid + "%\"";
 		}
 		if (opt.equals("Unpaid")) {
 			Query += " and paid=false";
